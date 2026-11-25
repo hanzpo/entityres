@@ -1,0 +1,75 @@
+{
+  "entities": [
+    {
+      "records": [
+        "crm:c1",
+        "registry:r1",
+        "web:w1"
+      ],
+      "fields": {
+        "name": "Acme Corporation",
+        "domain": "acme.com",
+        "employees": 125,
+        "tags": [
+          "customer",
+          "saas"
+        ]
+      }
+    },
+    {
+      "records": [
+        "crm:c2",
+        "registry:r2",
+        "web:w2"
+      ],
+      "fields": {
+        "name": "International Business Machines",
+        "domain": "ibm.com",
+        "tags": [
+          "prospect"
+        ]
+      }
+    },
+    {
+      "records": [
+        "crm:c3",
+        "registry:r3",
+        "web:w4"
+      ],
+      "fields": {
+        "name": "Globex Corporation",
+        "phone": "555-0199"
+      }
+    },
+    {
+      "records": [
+        "registry:r4"
+      ]
+    },
+    {
+      "records": [
+        "crm:c4"
+      ]
+    },
+    {
+      "records": [
+        "crm:c5",
+        "registry:r5"
+      ],
+      "fields": {
+        "name": "Café Zürich GmbH"
+      }
+    },
+    {
+      "records": [
+        "web:w3"
+      ]
+    },
+    {
+      "records": [
+        "web:w5"
+      ]
+    }
+  ],
+  "max_calls": 10
+}

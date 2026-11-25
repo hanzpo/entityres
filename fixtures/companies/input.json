@@ -1,0 +1,39 @@
+{
+  "config": {
+    "entity": "company",
+    "fields": {
+      "name": { "compare": "string", "semantic": true, "merge": "judge" },
+      "domain": { "compare": "exact", "normalize": "email" },
+      "phone": { "compare": "exact", "normalize": "digits" },
+      "city": { "compare": "string" },
+      "employees": { "compare": "number", "merge": "newest" },
+      "tags": { "compare": "none", "merge": "union" }
+    },
+    "keys": ["domain"],
+    "blocking": [
+      { "field": "name", "transform": "tokens" },
+      { "field": "phone", "transform": "digits" },
+      { "field": "city" }
+    ],
+    "vetoes": [{ "rule": "same_source" }, { "rule": "numbers_differ", "field": "name" }],
+    "sources": ["registry", "crm", "web"],
+    "merge": { "updated_field": "updated" }
+  },
+  "records": [
+    { "id": "r1", "source": "registry", "fields": { "name": "Acme Corporation", "phone": "(416) 555-0100", "city": "Toronto", "employees": 120, "updated": "2026-01-01" } },
+    { "id": "r2", "source": "registry", "fields": { "name": "International Business Machines", "phone": "914-499-1900", "city": "Armonk", "employees": 280000 } },
+    { "id": "r3", "source": "registry", "fields": { "name": "Globex Inc.", "phone": "555-0199", "city": "Springfield" } },
+    { "id": "r4", "source": "registry", "fields": { "name": "Acme Holdings 2", "city": "Toronto" } },
+    { "id": "r5", "source": "registry", "fields": { "name": "Café Zürich GmbH", "phone": "+41 44 123 45 67", "city": "Zürich" } },
+    { "id": "c1", "source": "crm", "fields": { "name": "ACME Corp", "domain": "acme.com", "phone": "416.555.0100", "city": "toronto", "employees": 125, "updated": "2026-06-01", "tags": ["customer"] } },
+    { "id": "c2", "source": "crm", "fields": { "name": "IBM", "domain": "ibm.com", "city": "Armonk NY", "tags": ["prospect"] } },
+    { "id": "c3", "source": "crm", "fields": { "name": "Globex", "phone": "555 0199", "city": "Springfield" } },
+    { "id": "c4", "source": "crm", "fields": { "name": "Acme Holdings 3", "city": "Toronto" } },
+    { "id": "c5", "source": "crm", "fields": { "name": "Cafe Zurich", "phone": "41441234567", "city": "Zurich" } },
+    { "id": "w1", "source": "web", "fields": { "name": "Acme", "domain": "ACME.com", "tags": ["saas", "customer"] } },
+    { "id": "w2", "source": "web", "fields": { "name": "IBM Corp", "domain": "ibm.com", "city": "Armonk" } },
+    { "id": "w3", "source": "web", "fields": { "name": "Initech", "domain": "initech.com", "city": "Austin" } },
+    { "id": "w4", "source": "web", "fields": { "name": "Globex Corporation", "city": "Springfield" } },
+    { "id": "w5", "source": "web", "fields": { "name": "Hooli", "city": "Palo Alto" } }
+  ]
+}

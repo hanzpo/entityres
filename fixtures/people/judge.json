@@ -1,0 +1,9 @@
+{
+  "pairs": {
+    "crm:m1|web:m2": 0.95,
+    "api:m3|web:m2": 0.3,
+    "api:t1|crm:t2": 0.9,
+    "crm:p1|web:p1": 0.98
+  },
+  "values": {}
+}

@@ -1,0 +1,18 @@
+{
+  "pairs": {
+    "registry:r2|web:w2": 0.96,
+    "crm:c2|registry:r2": 0.95,
+    "crm:c1|registry:r1": 0.97,
+    "registry:r1|web:w1": 0.93,
+    "crm:c3|web:w4": 0.9,
+    "registry:r3|web:w4": 0.9,
+    "crm:c3|registry:r3": 0.95,
+    "crm:c5|registry:r5": 0.97
+  },
+  "values": {
+    "crm:c1": { "name": "Acme Corporation" },
+    "crm:c2": { "name": "International Business Machines" },
+    "crm:c3": { "name": "Globex Corporation" },
+    "crm:c5": { "name": "Café Zürich GmbH" }
+  }
+}

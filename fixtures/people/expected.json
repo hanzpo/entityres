@@ -1,0 +1,11 @@
+{
+  "entities": [
+    { "records": ["crm:p1", "web:p1"], "fields": { "name": "José Álvarez", "title": "Senior Engineer", "email": "jose.alvarez@mail.com" } },
+    { "records": ["crm:m1", "web:m2"], "fields": { "dob": "1992-07-30" } },
+    { "records": ["api:m3"] },
+    { "records": ["api:k1"] },
+    { "records": ["web:k2"] },
+    { "records": ["api:t1", "crm:t2"], "fields": { "name": "Thomas Brown" } }
+  ],
+  "max_calls": 4
+}

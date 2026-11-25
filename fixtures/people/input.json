@@ -1,0 +1,32 @@
+{
+  "config": {
+    "entity": "person",
+    "fields": {
+      "name": { "compare": "string" },
+      "email": { "compare": "exact", "normalize": "email" },
+      "phone": { "compare": "exact", "normalize": "digits" },
+      "city": { "compare": "string" },
+      "dob": { "compare": "exact", "normalize": "exact" },
+      "title": { "compare": "none", "merge": "newest" }
+    },
+    "blocking": [
+      { "field": "name", "transform": "tokens" },
+      { "field": "phone", "transform": "digits" },
+      { "field": "email" }
+    ],
+    "vetoes": [{ "rule": "different", "field": "dob" }],
+    "sources": ["crm", "api", "web"],
+    "merge": { "updated_field": "updated" }
+  },
+  "records": [
+    { "id": "p1", "source": "crm", "fields": { "name": "José Álvarez", "email": "jose.alvarez@mail.com", "city": "Madrid", "dob": "1985-02-11", "title": "Engineer", "updated": 1 } },
+    { "id": "p1", "source": "web", "fields": { "name": "Jose Alvarez", "email": "Jose.Alvarez@mail.com", "city": "Madrid", "title": "Senior Engineer", "updated": 5 } },
+    { "id": "m1", "source": "crm", "fields": { "name": "Maria Garcia", "city": "Austin", "phone": "512-555-0101", "dob": "1992-07-30" } },
+    { "id": "m2", "source": "web", "fields": { "name": "Maria Garcia", "city": "Austin", "email": "maria.g@mail.com", "phone": "512 555 0101" } },
+    { "id": "m3", "source": "api", "fields": { "name": "Maria Garcia", "city": "Austin", "email": "maria.g@mail.com", "dob": "1979-01-05" } },
+    { "id": "k1", "source": "api", "fields": { "name": "Kim Lee", "city": "Seoul", "email": "kim@mail.kr" } },
+    { "id": "k2", "source": "web", "fields": { "name": "Kim Lee", "city": "Busan", "email": "lee.kim@mail.kr" } },
+    { "id": "t1", "source": "api", "fields": { "name": "Tom Brown", "phone": "555-0000" } },
+    { "id": "t2", "source": "crm", "fields": { "name": "Thomas Brown", "phone": "5550000" } }
+  ]
+}
