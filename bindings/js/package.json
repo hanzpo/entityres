@@ -1,0 +1,31 @@
+{
+  "name": "entityres",
+  "version": "0.1.0",
+  "description": "A small jev-powered entity resolution library",
+  "license": "MIT",
+  "type": "module",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    },
+    "./node": {
+      "types": "./dist/node.d.ts",
+      "default": "./dist/node.js"
+    },
+    "./entityres.wasm": "./entityres.wasm"
+  },
+  "files": [
+    "dist",
+    "entityres.wasm"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "test": "node --test test/*.test.ts",
+    "typecheck": "tsc --noEmit"
+  },
+  "devDependencies": {
+    "@types/node": "^26.6.10",
+    "typescript": "^7.0.2"
+  }
+}
