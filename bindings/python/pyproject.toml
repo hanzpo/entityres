@@ -1,0 +1,28 @@
+[build-system]
+requires = ["maturin>=1.9,<2"]
+build-backend = "maturin"
+
+[project]
+name = "entityres"
+version = "0.1.0"
+description = "A small jev-powered entity resolution library"
+license = "MIT"
+requires-python = ">=3.12"
+dependencies = []
+
+[dependency-groups]
+dev = ["pytest", "ruff", "pyright"]
+
+[tool.maturin]
+python-source = "src"
+module-name = "entityres._core"
+features = ["pyo3/extension-module"]
+
+[tool.uv]
+cache-keys = [{ file = "pyproject.toml" }, { file = "Cargo.toml" }, { file = "rust/**/*.rs" }, { file = "../../crates/entityres/src/**/*.rs" }]
+
+[tool.ruff]
+line-length = 110
+
+[tool.pyright]
+typeCheckingMode = "strict"

@@ -1,6 +1,6 @@
 [workspace]
 resolver = "2"
-members = ["crates/entityres", "crates/entityres-wasm"]
+members = ["crates/entityres", "crates/entityres-wasm", "bindings/python"]
 
 [workspace.package]
 version = "0.1.0"
